@@ -13,27 +13,28 @@
 
                             <div class="post-header mb-5 text-center">
 						        <div class="meta-cat">
-						            <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1" href="#">Health ,</a>
-						            <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1"  href="#">lifestyle</a>
+						            <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1" href="{{ route('category',$post->category_id) }}">{{ $post->category->title }}</a>
 						        </div>
 						        <h2 class="post-title mt-2">
-						            First Look At Self-Portrait's Autumn Collection
+						            {{ $post->title }}
 						        </h2>
 
 						        <div class="post-meta">
-						            <span class="text-uppercase font-sm letter-spacing-1 mr-3">by Liam</span>
-						            <span class="text-uppercase font-sm letter-spacing-1">January 17,2019</span>
+						            <span class="text-uppercase font-sm letter-spacing-1 mr-3">by {{ $post->user->name }}</span>
+						            <span class="text-uppercase font-sm letter-spacing-1">{{ $post->created_at->format('F') }}</span>
 						        </div>
 						    </div>
 
 						    <div class="post-img mb-4">
-                                <a href="#"><img class="img-fluid" src="images/fashion/bg-banner-2.jpg" alt=""></a>
+                                <a href="#"><img class="img-fluid" src="{{ asset($post->image) }}" alt=""></a>
                             </div>
 
 						    <div class="post-body">
 						        <div class="entry-content">
-						            <p> It was a cheerful prospect. I asked Perry what he thought about it; but he only shrugged his shoulders and continued a longwinded prayer he had been at for some time. He was wont to say that the only redeeming feature of our captivity was the ample time it gave him for the improvisation of prayers—it was becoming an obsession with him.</p>
-						          <h2 class="mt-4 mb-3">Perfect design & code delivered to you</h2>
+						            <p> {{ $post->description }} {{ $post->description }} {{ $post->description }}
+                                         {{ $post->description }} {{ $post->description }} {{ $post->description }}
+                                         {{ $post->description }} {{ $post->description }} {{ $post->description }}.</p>
+						          <h2 class="mt-4 mb-3">{{ $post->title }}</h2>
 						          <p> The Sagoths had begun to take notice of his habit of declaiming throughout entire marches. One of them asked him what he was saying—to whom he was talking. The question gave me an idea, so I answered quickly before Perry could say anything.</p>
 						            <blockquote>
 						                <i class="ti-quote-left mr-2"></i>A wise girls knows her limit to touch the sky.Repellat sapiente neque iusto praesentium adipisci.The question gave me an idea, so I answered quickly before Perry could say anything.<i class="ti-quote-right ml-2"></i>
@@ -41,10 +42,10 @@
 
 						            <div class="row">
 						                <div class="col-lg-6 col-md-6">
-						                    <img src="images/fashion/single-img1.png" alt="post-img" class="img-fluid mr-4 w-100">
+						                    <img src="{{ asset($post->image) }}" alt="post-img" class="img-fluid mr-4 w-100">
 						                </div>
 						                <div class="col-lg-6 col-md-6">
-						                    <img src="images/fashion/single-img2.png" alt="post-img" class="img-fluid mr-4 w-100">
+						                    <img src="{{ asset($post->image) }}" alt="post-img" class="img-fluid mr-4 w-100">
 						                </div>
 						            </div>
 						            <h3 class="mt-5 mb-3">Enjoying the view of summer</h3>
@@ -58,9 +59,7 @@
 						        </div>
 
 						        <div class="post-tags py-4">
-						            <a href="#">#Health</a>
-						            <a href="#">#Game</a>
-						            <a href="#">#Tour</a>
+						            <a href="#">#{{ $post->category->title }}</a>
 						        </div>
 
 
@@ -86,11 +85,11 @@
                 </div>
 				<div class="post-author d-flex my-5">
 	<div class="author-img">
-		<img alt="" src="images/author.jpg" class="avatar avatar-100 photo" width="100" height="100">
+		<img alt="" src="{{ asset($post->image) }}" class="avatar avatar-100 photo" width="100" height="100">
 	</div>
 
 	<div class="author-content pl-4">
-		<h4 class="mb-3"><a href="#" title="" rel="author" class="text-capitalize">Themefisher</a></h4>
+		<h4 class="mb-3"><a href="{{ asset($post->image) }}" title="" rel="author" class="text-capitalize">Themefisher</a></h4>
 		<p>Hey there. My name is Liam. I was born with the love for traveling. I also love taking photos with my phone in order to capture moment..</p>
 
 		<a target="_blank" class="author-social" href="#"><i class="ti-facebook"></i></a>
@@ -123,7 +122,7 @@
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="post-block-wrapper mb-4 mb-lg-0">
                 <a href="blog-single.html">
-                    <img class="img-fluid" src="images/fashion/img-1.jpg" alt="post-thumbnail"/>
+                    <img class="img-fluid" src="{{ asset($post->image) }}" alt="post-thumbnail"/>
                 </a>
                 <div class="post-content mt-3">
                     <h5 >
@@ -135,7 +134,7 @@
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="post-block-wrapper mb-4 mb-lg-0">
                 <a href="blog-single.html">
-                    <img class="img-fluid" src="images/fashion/img-2.jpg" alt="post-thumbnail"/>
+                    <img class="img-fluid" src="{{ asset($post->image) }}" alt="post-thumbnail"/>
                 </a>
                 <div class="post-content mt-3">
                     <h5 >
@@ -147,7 +146,7 @@
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="post-block-wrapper">
                 <a href="blog-single.html">
-                    <img class="img-fluid" src="images/fashion/img-3.jpg" alt="post-thumbnail"/>
+                    <img class="img-fluid" src="{{ asset($post->image) }}" alt="post-thumbnail"/>
                 </a>
                 <div class="post-content mt-3">
                     <h5 >
@@ -162,7 +161,7 @@
 					<div class="comment-area my-5">
 		<h3 class="mb-4 text-center">2 Comments</h3>
 		<div class="comment-area-box media">
-			<img alt="" src="images/blog-user-2.jpg" class="img-fluid float-left mr-3 mt-2">
+			<img alt="" src="{{ asset($post->image) }}" class="img-fluid float-left mr-3 mt-2">
 
 			<div class="media-body ml-4">
 				<h4 class="mb-0">Micle harison </h4>
@@ -178,7 +177,7 @@
 		</div>
 
 		<div class="comment-area-box media mt-5">
-			<img alt="" src="images/blog-user-3.jpg" class="mt-2 img-fluid float-left mr-3">
+			<img alt="" src="{{ asset($post->image) }}" class="mt-2 img-fluid float-left mr-3">
 
 			<div class="media-body ml-4">
 				<h4 class="mb-0 ">John Doe </h4>
@@ -221,12 +220,12 @@
 					<div class="sidebar-wrap mt-5 mt-lg-0">
 	<div class="sidebar-widget about mb-5 text-center p-3">
 		<div class="about-author">
-			<img src="images/author.jpg" alt="" class="img-fluid">
+			<img src="{{ asset($post->image) }}" alt="" class="img-fluid">
 		</div>
 		<h4 class="mb-0 mt-4">Liam Mason</h4>
 		<p>Travel Blogger</p>
 		<p>I'm Liam, last year I decided to quit my job and travel the world. You can follow my journey on this blog!</p>
-		<img src="images/liammason.png" alt="" class="img-fluid">
+		<img src="{{ asset($post->image) }}" alt="" class="img-fluid">
 	</div>
 
 	<div class="sidebar-widget follow mb-5 text-center">
@@ -244,7 +243,7 @@
 		<h4 class="text-center widget-title">Trending Posts</h4>
 
 		<div class="sidebar-post-item-big">
-			<a href="blog-single.html"><img src="images/news/img-1.jpg" alt="" class="img-fluid"></a>
+			<a href="blog-single.html"><img src="{{ asset($post->image) }}" alt="" class="img-fluid"></a>
 			<div class="mt-3 media-body">
             	<span class="text-muted letter-spacing text-uppercase font-sm">September 10, 2019</span>
 				<h4 ><a href="blog-single.html">Meeting With Clarissa, Founder Of Purple Conversation App</a></h4>
@@ -252,7 +251,7 @@
 		</div>
 
         <div class="media border-bottom py-3 sidebar-post-item">
-            <a href="#"><img class="mr-4" src="images/news/thumb-1.jpg" alt=""></a>
+            <a href="#"><img class="mr-4" src="{{ asset($post->image) }}" alt=""></a>
             <div class="media-body">
             	<span class="text-muted letter-spacing text-uppercase font-sm">September 10, 2019</span>
                 <h4 ><a href="blog-single.html">Thoughtful living in los Angeles</a></h4>
@@ -260,7 +259,7 @@
         </div>
 
         <div class="media py-3 sidebar-post-item">
-            <a href="#"><img class="mr-4" src="images/news/thumb-2.jpg" alt=""></a>
+            <a href="#"><img class="mr-4" src="{{ asset($post->image) }}" alt=""></a>
            <div class="media-body">
            		<span class="text-muted letter-spacing text-uppercase font-sm">September 10, 2019</span>
                 <h4 ><a href="blog-single.html">Vivamus molestie gravida turpis.</a></h4>
@@ -298,7 +297,7 @@
 	</div>
 
 	<div class="sidebar-widget sidebar-adv mb-5">
-		<a href="#"><img src="images/sidebar-banner3.png" alt="" class="img-fluid w-100"></a>
+		<a href="#"><img src="{{ asset($post->image) }}" alt="" class="img-fluid w-100"></a>
 	</div>
 
 </div>

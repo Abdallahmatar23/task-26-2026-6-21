@@ -3,16 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
-        // $categories = Category::paginate(10);
-        return view('client.pages.fashion', ['categories' => $categories]);
+        // $categories = Category::all();
+        $categories = Category::withCount('posts')->paginate(10);
+        // $posts = Post::all();
+        return view('client.pages.categories', ['categories' => $categories]);
     }
+    public function view(int $id)
+    {
+        $category = Category::findOrFail($id);
+        $posts = Post::where('category_id', $id)->paginate(10);
+        $randPosts = $posts->random(3);
+        return view('client.pages.fashion', ['category' => $category, 'posts' => $posts, 'randPosts' => $randPosts]);
+    }
+
 
     public function admin()
     {

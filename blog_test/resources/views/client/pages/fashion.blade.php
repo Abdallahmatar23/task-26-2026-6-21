@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="text-center">
-                        <h2 class="lg-title">Travel</h2>
+                        <h2 class="lg-title">{{ $category->title }}</h2>
                     </div>
                 </div>
             </div>
@@ -20,142 +20,26 @@
             <div class="row">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <article class="post-grid mb-5">
-                                <div class="post-thumb mb-4">
-                                    <img src="images/news/f1.jpg" alt="" class="img-fluid w-100">
-                                </div>
-                                <span
-                                    class="cat-name text-color font-extra text-sm text-uppercase letter-spacing-1">Travel</span>
-                                <h3 class="post-title mt-1"><a href="blog-single.html">The best soft chocolate chip
-                                        cookies</a></h3>
+                        @foreach ($posts as $post)
+                            <div class="col-lg-6 col-md-6">
+                                <article class="post-grid mb-5">
+                                    <div class="post-thumb mb-4">
+                                        <img src="{{ asset($post->image) }}" alt="" class="img-fluid w-100">
+                                    </div>
+                                    <span
+                                        class="cat-name text-color font-extra text-sm text-uppercase letter-spacing-1">{{ $post->title }}</span>
+                                    <h3 class="post-title mt-1"><a href="blog-single.html">{{ $post->description }}</a>
+                                    </h3>
 
-                                <span class=" text-muted  text-capitalize">September 15, 2019</span>
+                                    <span class=" text-muted  text-capitalize">{{ $post->created_at }}</span>
 
-                            </article>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <article class="post-grid mb-5">
-                                <div class="post-thumb mb-4">
-                                    <img src="images/news/f2.jpg" alt="" class="img-fluid w-100">
-                                </div>
-                                <span
-                                    class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-                                <h3 class="post-title mt-1"><a href="blog-single.html">How to Make the Best Baked
-                                        Oatmeal</a></h3>
-
-                                <span class=" text-muted  text-capitalize">August 05, 2019</span>
-
-                            </article>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <article class="post-grid mb-5">
-                                <div class="post-thumb mb-4">
-                                    <img src="images/news/f8.jpg" alt="" class="img-fluid w-100">
-                                </div>
-                                <span
-                                    class=" cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-                                <h3 class="post-title mt-1"><a href="blog-single.html">5 ingredient cilantro vinaigrette</a>
-                                </h3>
-
-                                <span class=" text-muted  text-capitalize">April 22, 2019</span>
-
-                            </article>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <article class="post-grid mb-5">
-                                <div class="post-thumb mb-4">
-                                    <img src="images/news/f3.jpg" alt="" class="img-fluid w-100">
-                                </div>
-                                <span
-                                    class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-                                <h3 class="post-title mt-1"><a href="blog-single.html">The best soft chocolate chip
-                                        cookies</a></h3>
-
-                                <span class=" text-muted  text-capitalize">September 10, 2019</span>
-
-                            </article>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <article class="post-grid mb-5">
-                                <div class="post-thumb mb-4">
-                                    <img src="images/news/f4.jpg" alt="" class="img-fluid w-100">
-                                </div>
-                                <span
-                                    class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-                                <h3 class="post-title mt-1"><a href="blog-single.html">How to Make the Best Baked
-                                        Oatmeal</a></h3>
-
-                                <span class=" text-muted  text-capitalize">January 04, 2019</span>
-
-                            </article>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <article class="post-grid mb-5">
-                                <div class="post-thumb mb-4">
-                                    <img src="images/news/f5.jpg" alt="" class="img-fluid w-100">
-                                </div>
-                                <span
-                                    class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-                                <h3 class="post-title mt-1"><a href="blog-single.html">5 ingredient cilantro vinaigrette</a>
-                                </h3>
-
-                                <span class=" text-muted  text-capitalize">March 17, 2019</span>
-
-                            </article>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <article class="post-grid mb-5">
-                                <div class="post-thumb mb-4">
-                                    <img src="images/news/f6.jpg" alt="" class="img-fluid w-100">
-                                </div>
-                                <span
-                                    class=" cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-                                <h3 class="post-title mt-1"><a href="blog-single.html">5 ingredient cilantro vinaigrette</a>
-                                </h3>
-
-                                <span class=" text-muted  text-capitalize">July 28, 2019</span>
-
-                            </article>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <article class="post-grid mb-5">
-                                <div class="post-thumb mb-4">
-                                    <img src="images/news/f7.jpg" alt="" class="img-fluid w-100">
-                                </div>
-                                <span
-                                    class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-                                <h3 class="post-title mt-1"><a href="blog-single.html">The best soft chocolate chip
-                                        cookies</a></h3>
-
-                                <span class=" text-muted  text-capitalize">October 02, 2019</span>
-
-                            </article>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <article class="post-grid mb-5">
-                                <div class="post-thumb mb-4">
-                                    <img src="images/news/f8.jpg" alt="" class="img-fluid w-100">
-                                </div>
-                                <span
-                                    class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-                                <h3 class="post-title mt-1"><a href="blog-single.html">How to Make the Best Baked
-                                        Oatmeal</a></h3>
-
-                                <span class=" text-muted  text-capitalize">September 15, 2019</span>
-
-                            </article>
-                        </div>
+                                </article>
+                            </div>
+                        @endforeach
                     </div>
 
                     <div class="pagination mt-5 pt-4">
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a href="#" class="active">1</a></li>
-                            <li class="list-inline-item"><a href="#">2</a></li>
-                            <li class="list-inline-item"><a href="#">3</a></li>
-                            <li class="list-inline-item"><a href="#" class="prev-posts"><i
-                                        class="ti-arrow-right"></i></a></li>
-                        </ul>
+                        {{ $posts->links('pagination::bootstrap-5') }}
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
@@ -186,36 +70,16 @@
                             <div class="sidebar-widget mb-5 ">
                                 <h4 class="text-center widget-title">Trending Posts</h4>
 
+                                @foreach($randPosts as $randPost)
                                 <div class="sidebar-post-item-big">
-                                    <a href="blog-single.html"><img src="images/news/img-1.jpg" alt=""
+                                    <a href="blog-single.html"><img src="{{asset($randPost->image)}}" alt=""
                                             class="img-fluid"></a>
                                     <div class="mt-3 media-body">
-                                        <span class="text-muted letter-spacing text-uppercase font-sm">September 10,
-                                            2019</span>
-                                        <h4><a href="blog-single.html">Meeting With Clarissa, Founder Of Purple
-                                                Conversation App</a></h4>
+                                        <span class="text-muted letter-spacing text-uppercase font-sm">{{$randPost->created_at}}</span>
+                                        <h4><a href="blog-single.html">{{ $randPost->title }}</a></h4>
                                     </div>
                                 </div>
-
-                                <div class="media border-bottom py-3 sidebar-post-item">
-                                    <a href="#"><img class="mr-4" src="images/news/thumb-1.jpg"
-                                            alt=""></a>
-                                    <div class="media-body">
-                                        <span class="text-muted letter-spacing text-uppercase font-sm">September 10,
-                                            2019</span>
-                                        <h4><a href="blog-single.html">Thoughtful living in los Angeles</a></h4>
-                                    </div>
-                                </div>
-
-                                <div class="media py-3 sidebar-post-item">
-                                    <a href="#"><img class="mr-4" src="images/news/thumb-2.jpg"
-                                            alt=""></a>
-                                    <div class="media-body">
-                                        <span class="text-muted letter-spacing text-uppercase font-sm">September 10,
-                                            2019</span>
-                                        <h4><a href="blog-single.html">Vivamus molestie gravida turpis.</a></h4>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
 
 

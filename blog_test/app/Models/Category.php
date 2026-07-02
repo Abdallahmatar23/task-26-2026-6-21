@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 
 // protected $fillable = ['title','description'];
-#[Fillable(['title', 'description'])]
+#[Fillable(['title', 'description','image'])]
 
 class Category extends Model
 {

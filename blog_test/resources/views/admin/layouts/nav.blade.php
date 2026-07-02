@@ -29,7 +29,7 @@
             </li>
 
             <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="{{ route('category') }}" class="nav-link">Category</a></li>
+            <li class="nav-item"><a href="{{ route('categories') }}" class="nav-link">Categories</a></li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="{{ route('blog') }}" id="navbarDropdown3" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,6 +44,17 @@
                 </div>
             </li>
 
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{{ route('all-categories') }}" id="navbarDropdown2"
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Administrator
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <a class="dropdown-item" href="{{ route('all-categories') }}">Categories</a>
+                    <a class="dropdown-item" href="{{ route('all-posts') }}">Posts</a>
+                    {{-- <a class="dropdown-item" href="{{ route('all-users') }}">Users</a> --}}
+                </div>
+            </li>
             <li class="nav-item"><a href="{{ url('contact') }}" class="nav-link">Contact</a></li>
         </ul>
         <div class="text-lg-right search ml-4">

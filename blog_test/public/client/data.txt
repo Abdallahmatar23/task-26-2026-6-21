@@ -1,0 +1,59 @@
+INSERT INTO categories (id, title, description, image, created_at, updated_at) VALUES
+
+(1, 'Technology', 'Latest trends and updates in technology, programming, and innovation.', 'client/images/cat/cat-1.jpg', NOW(), NOW()),
+
+(2, 'Travel', 'Explore the world with travel guides, tips, and destination ideas.', 'client/images/cat/cat-2.jpg', NOW(), NOW()),
+
+(3, 'Food & Recipes', 'Delicious recipes, cooking tips, and food inspiration.', 'client/images/cat/cat-3.jpg', NOW(), NOW()),
+
+(4, 'Health & Fitness', 'Tips for a healthy lifestyle, workouts, and mental wellness.', 'client/images/cat/cat-4.jpg', NOW(), NOW()),
+
+(5, 'Design', 'UI/UX design, graphic inspiration, and creative ideas.', 'client/images/cat/cat-5.jpg', NOW(), NOW()),
+
+(6, 'Business', 'Entrepreneurship, startups, and business growth strategies.', 'client/images/cat/cat-6.jpg', NOW(), NOW()),
+
+(7, 'Lifestyle', 'Daily life inspiration, habits, and personal development.', 'client/images/cat/cat-7.jpg', NOW(), NOW()),
+
+(8, 'Education', 'Learning resources, tutorials, and skill development.', 'client/images/cat/cat-8.jpg', NOW(), NOW());
+
+
+INSERT INTO posts (title, description, image, user_id, category_id, created_at, updated_at) VALUES
+
+('Modern UI Trends in 2025', 'Exploring the latest trends in user interface design and creativity.', 'client/images/news/f1.jpg', 2, 5, '2025-01-10', NOW()),
+
+('Minimalist Design اصول التصميم البسيط', 'كيف تستخدم البساطة في تصميم واجهات جذابة وسهلة الاستخدام.', 'client/images/news/f2.jpg', 2, 5, '2025-02-03', NOW()),
+
+('Color Theory for Designers', 'Understanding color harmony and how to apply it in modern design.', 'client/images/news/f8.jpg', 2, 5, '2025-03-15', NOW()),
+
+('Typography Secrets Every Designer Should Know', 'خطوط الكتابة وتأثيرها على تجربة المستخدم.', 'client/images/news/f3.jpg', 2, 5, '2025-04-01', NOW()),
+
+('Designing for Mobile First', 'أفضل الممارسات لتصميم تطبيقات الموبايل بشكل احترافي.', 'client/images/news/f4.jpg', 2, 5, '2025-04-18', NOW()),
+
+('UX vs UI الفرق الحقيقي', 'فهم الفرق بين تجربة المستخدم وواجهة المستخدم.', 'client/images/news/f5.jpg', 2, 5, '2025-05-05', NOW()),
+
+('Building Design Systems', 'كيفية إنشاء Design System يساعد في توحيد المشاريع.', 'client/images/news/f6.jpg', 2, 5, '2025-05-20', NOW()),
+
+('Creative Layout Ideas', 'أفكار مبتكرة لتنظيم المحتوى داخل الصفحات.', 'client/images/news/f7.jpg', 2, 5, '2025-06-02', NOW()),
+
+('Responsive Design Best Practices', 'كيفية جعل تصميمك يعمل على كل الشاشات بكفاءة.', 'client/images/news/f8.jpg', 2, 5, '2025-06-15', NOW());
+
+
+INSERT INTO posts (title, description, image, user_id, category_id, created_at, updated_at) VALUES
+
+('The best soft chocolate chip cookies', 'Article about travel and lifestyle.', 'client/images/news/f1.jpg', 1, 1, '2019-09-15', NOW()),
+
+('How to Make the Best Baked Oatmeal', 'Delicious baked oatmeal recipe and travel experience.', 'client/images/news/f2.jpg', 1, 1, '2019-08-05', NOW()),
+
+('5 ingredient cilantro vinaigrette', 'Simple and quick vinaigrette recipe.', 'client/images/news/f8.jpg', 1, 1, '2019-04-22', NOW()),
+
+('The best soft chocolate chip cookies', 'Travel blog discussing food and lifestyle.', 'client/images/news/f3.jpg', 1, 1, '2019-09-10', NOW()),
+
+('How to Make the Best Baked Oatmeal', 'Healthy breakfast ideas during travel.', 'client/images/news/f4.jpg', 1, 1, '2019-01-04', NOW()),
+
+('5 ingredient cilantro vinaigrette', 'Easy recipe for travelers.', 'client/images/news/f5.jpg', 1, 1, '2019-03-17', NOW()),
+
+('5 ingredient cilantro vinaigrette', 'Quick meal prep ideas.', 'client/images/news/f6.jpg', 1, 1, '2019-07-28', NOW()),
+
+('The best soft chocolate chip cookies', 'Sweet dessert recipe blog.', 'client/images/news/f7.jpg', 1, 1, '2019-10-02', NOW()),
+
+('How to Make the Best Baked Oatmeal', 'Comfort food while traveling.', 'client/images/news/f8.jpg', 1, 1, '2019-09-15', NOW());
