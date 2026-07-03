@@ -28,17 +28,19 @@ Route::get('edit-category/{id}', [CategoryController::class, 'edit'])->name('edi
 
 Route::post('update-category', [CategoryController::class, 'update'])->name('update-category');
 
-Route::delete('delete-category', [CategoryController::class, 'destroy'])->name('delete-category');
+Route::post('delete-category', [CategoryController::class, 'destroy'])->name('delete-category');
 
 Route::get('all-categories', [CategoryController::class, 'admin'])->name('all-categories');
 
 Route::get('all-posts', [PostController::class, 'admin'])->name('all-posts');
 
-Route::get('post/{id}', [PostController::class, 'index'])->name('post');
+Route::get('post/{id}', [PostController::class, 'show'])->name('post');
 
 Route::get('blog/{id}', [PostController::class, 'index'])->name('blog');
 
 Route::resource('comment',CommentController::class);
+
+Route::resource('post',PostController::class);
 
 // Route::get('all-users', [UserController::class, 'admin'])->name('all-users');
 

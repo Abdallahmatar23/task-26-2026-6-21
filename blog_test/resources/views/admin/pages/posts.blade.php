@@ -10,14 +10,14 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Categories</h1>
+            <h1>Posts</h1>
 
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="">Home</a>
                     </li>
-                    <li class="breadcrumb-item active">Categories</li>
+                    <li class="breadcrumb-item active">Posts</li>
                 </ol>
             </nav>
         </div>
@@ -31,14 +31,13 @@
 
                             <!-- Header -->
                             <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h3 class="mb-0">Categories List</h3>
+                                <h3 class="mb-0">Posts List</h3>
+                                <h3 class="mb-0">{{ $posts->count() }} Post</h3>
 
-                                <h3>{{ $categories->count() }} Category</h3>
-
-                                <a href="{{ route('create-category') }}" class="btn btn-success">
-                                    <i class="bi bi-plus-circle me-1"></i>
-                                    Add Category
-                                </a>
+                                {{-- <a href="{{ route('create.post') }}" class="btn btn-success">
+                                <i class="bi bi-plus-circle me-1"></i>
+                                Add post
+                            </a> --}}
                             </div>
 
                             <!-- Table -->
@@ -48,6 +47,8 @@
                                         <th>#ID</th>
                                         <th>Title</th>
                                         <th>Description</th>
+                                        <th>Image</th>
+                                        <th>Created by</th>
                                         <th>Created At</th>
                                         <th>Actions</th>
                                     </tr>
@@ -55,29 +56,32 @@
 
                                 <tbody>
 
-                                    @foreach ($categories as $category)
+                                    @foreach ($posts as $post)
                                         <tr>
-                                            <td>{{ $category->id }}</td>
+                                            <td>{{ $post->id }}</td>
 
-                                            <td>{{ $category->title }}</td>
+                                            <td>{{ $post->title }}</td>
 
-                                            <td>{{ $category->description }}</td>
+                                            <td>{{ $post->description }}</td>
 
+                                            <td><img class="img-fluid" src="{{ asset($post->image) }}"
+                                                    alt="post-thumbnail" /></td>
 
-                                            <td>{{ $category->created_at }}</td>
+                                            <td>{{ $post->user->name }}</td>
+
+                                            <td>{{ $post->created_at }}</td>
 
                                             <td>
+
                                                 <div class="btn-group">
 
-                                                    <a href="{{ route('edit-category', $category->id) }}"
-                                                        class="btn btn-primary btn-sm">
+                                                    <a href="#" class="btn btn-primary btn-sm">
                                                         Edit
                                                     </a>
 
-                                                    <form method="POST" action="{{ route('delete-category') }}"
-                                                        onsubmit="return confirm('Are you sure you want to delete this category?')">
+                                                    <form method="POST" action="#" onsubmit="return confirm('Are you sure you want to delete this post?')">
 
-                                                        <input type="hidden" name="id" value="{{ $category->id }}">
+                                                        <input type="hidden" name="id" value="">
 
                                                         <button type="submit" class="btn btn-danger btn-sm">
                                                             Delete

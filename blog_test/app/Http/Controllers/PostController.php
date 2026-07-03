@@ -7,19 +7,21 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(int $id)
+    public function index(int $user_id)
     {
-        $post = Post::with('user','category','comments')->findOrFail($id);
-
-
+        $posts = Post::where('user_id', $user_id)->get();
+        return view('client.pages.blog-single', ['posts' => $posts]);
+    }
+    public function show(int $id)
+    {
+        $post = Post::with('user', 'category', 'comments')->findOrFail($id);
         // dd($post->comments);
-        return view('client.pages.post-image',['post' => $post]);
+        return view('client.pages.post-image', ['post' => $post]);
     }
 
-    // public function show($id){
-
-    // }
-    public function admin(){
-
+    public function admin()
+    {
+        $posts = Post::all();
+        return view('admin.pages.posts', ['posts' => $posts]);
     }
 }

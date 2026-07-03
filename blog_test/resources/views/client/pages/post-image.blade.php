@@ -83,7 +83,8 @@
                                     <div
                                         class="tags-share-box center-box d-flex text-center justify-content-between border-top border-bottom py-3">
 
-                                        <span class="single-comment-o"><i class="fa fa-comment-o"></i>0 comment</span>
+                                        <span class="single-comment-o"><i
+                                                class="fa fa-comment-o"></i>{{ $post->comments->count() }} comment</span>
 
                                         <div class="post-share">
                                             <span class="count-number-like">2</span>
@@ -141,47 +142,27 @@
                             You May Also Like
                         </h3>
                         <div class="row">
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="post-block-wrapper mb-4 mb-lg-0">
-                                    <a href="blog-single.html">
-                                        <img class="img-fluid" src="{{ asset($post->image) }}" alt="post-thumbnail" />
-                                    </a>
-                                    <div class="post-content mt-3">
-                                        <h5>
-                                            <a href="blog-single.html">Intel’s new smart glasses actually look good</a>
-                                        </h5>
+                            @foreach ($post->category->posts as $post)
+                                <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <div class="post-block-wrapper mb-4 mb-lg-0">
+                                        <a href="{{ route('post', $post->id) }}">
+                                            <img class="img-fluid" src="{{ asset($post->image) }}"
+                                                alt="post-thumbnail" />
+                                        </a>
+                                        <div class="post-content mt-3">
+                                            <h5>
+                                                <a href="{{ route('post', $post->id) }}">{{ $post->title }}</a>
+                                            </h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="post-block-wrapper mb-4 mb-lg-0">
-                                    <a href="blog-single.html">
-                                        <img class="img-fluid" src="{{ asset($post->image) }}" alt="post-thumbnail" />
-                                    </a>
-                                    <div class="post-content mt-3">
-                                        <h5>
-                                            <a href="blog-single.html">Free Two-Hour Delivery From Whole Foods</a>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="post-block-wrapper">
-                                    <a href="blog-single.html">
-                                        <img class="img-fluid" src="{{ asset($post->image) }}" alt="post-thumbnail" />
-                                    </a>
-                                    <div class="post-content mt-3">
-                                        <h5>
-                                            <a href="blog-single.html">Snow and Freezing Rain in Paris Forces the</a>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
 
                     <div class="comment-area my-5">
-                        <h3 class="mb-4 text-center">2 Comments</h3>
+                        <h3 class="mb-4 text-center">{{ $post->comments->count() }} Comments</h3>
                         {{-- @foreach ($comments as $comment) --}}
                         @foreach ($post->comments as $comment)
                             <div class="comment-area-box media">
@@ -191,10 +172,9 @@
 
                                 <div class="media-body ml-4">
                                     {{-- <h4 class="mb-0">Micle harison </h4> --}}
-                                    <h4 class="mb-0">{{  $comment->user->name }} </h4>
-                                    <span class="date-comm font-sm text-capitalize text-color"><i
-                                            {{-- class="ti-time mr-2"></i>June 7, 2019 </span> --}}
-                                    class="ti-time mr-2"></i>{{ $comment->created_at }}</span>
+                                    <h4 class="mb-0">{{ $comment->user->name }} </h4>
+                                    <span class="date-comm font-sm text-capitalize text-color"><i {{-- class="ti-time mr-2"></i>June 7, 2019 </span> --}}
+                                            class="ti-time mr-2"></i>{{ $comment->created_at }}</span>
 
                                     <div class="comment-content mt-3">
                                         <p>{{ $comment->content }}.</p>

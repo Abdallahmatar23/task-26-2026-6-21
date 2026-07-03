@@ -29,6 +29,7 @@
                                         <h3 class="post-title mt-1"><a
                                                 href="{{ route('post', $post->id) }}">{{ $post->title }}</a></h3>
                                         <p>{{ $post->description }}</p>
+                                        <h5> Created by : {{ $post->user->name }}</h5>
                                     </div>
                                 </article>
                             </div>

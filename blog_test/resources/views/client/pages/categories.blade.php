@@ -28,7 +28,7 @@
                                     </div>
                                     <span
                                         class="cat-name text-color font-extra text-sm text-uppercase letter-spacing-1">{{ $category->title }}</span>
-                                    <h3 class="post-title mt-1"><a href="{{ route('blog') }}">{{ $category->description }}</a>
+                                    <h3 class="post-title mt-1"><a href="{{ route('blog',1) }}">{{ $category->description }}</a>
                                     </h3>
 
                                     <span class=" text-muted  text-capitalize">{{ $category->created_at }}</span>
