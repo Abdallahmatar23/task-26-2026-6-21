@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
@@ -16,11 +17,8 @@ Route::get('about', [AboutController::class, 'index'])->name('about');
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 
 Route::get('categories', [CategoryController::class, 'index'])->name('categories');
-Route::get('category/{id}', [CategoryController::class, 'view'])->name('category');
 
-Route::get('all-categories', [CategoryController::class, 'admin'])->name('all-categories');
-Route::get('all-posts', [PostController::class, 'admin'])->name('all-posts');
-// Route::get('all-users', [UserController::class, 'admin'])->name('all-users');
+Route::get('category/{id}', [CategoryController::class, 'view'])->name('category');
 
 Route::get('create-category', [CategoryController::class, 'create'])->name('create-category');
 
@@ -30,13 +28,21 @@ Route::get('edit-category/{id}', [CategoryController::class, 'edit'])->name('edi
 
 Route::post('update-category', [CategoryController::class, 'update'])->name('update-category');
 
+Route::delete('delete-category', [CategoryController::class, 'destroy'])->name('delete-category');
 
-Route::post('delete-category', [CategoryController::class, 'destroy'])->name('delete-category');
+Route::get('all-categories', [CategoryController::class, 'admin'])->name('all-categories');
 
-Route::post('store-contact', [ContactController::class, 'store']);
-Route::get('blog/{id}', [PostController::class, 'index'])->name('blog');
+Route::get('all-posts', [PostController::class, 'admin'])->name('all-posts');
 
 Route::get('post/{id}', [PostController::class, 'index'])->name('post');
+
+Route::get('blog/{id}', [PostController::class, 'index'])->name('blog');
+
+Route::resource('comment',CommentController::class);
+
+// Route::get('all-users', [UserController::class, 'admin'])->name('all-users');
+
+Route::post('store-contact', [ContactController::class, 'store']);
 
 Route::get('left-sidebar', function () {
     return view('client.pages.standard-left-sidebar');

@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string("title");
             $table->text("description");
-            $table->string("image");
+            $table->string("image")->default('client/images/blog/blog-1.jpg');
+            $table->boolean("is_featured")->default(0);
             $table->foreignId("user_id")->constrained;
             $table->foreignId("category_id")->constrained;
             $table->timestamps();
