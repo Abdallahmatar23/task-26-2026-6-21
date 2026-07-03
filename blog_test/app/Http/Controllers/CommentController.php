@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -20,7 +22,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        return view('client.pages.comment.create');
     }
 
     /**
@@ -28,7 +30,15 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->email);
+        $user = User::where('email', $request->email)->first();
+
+        Comment::create([
+            'post_id' => $request->post_id,
+            'user_id' => $user->id,
+            'content' => $request->comment
+        ]);
+        return redirect()->route('post', $request->post_id)->with('success', 'Comment Created Successfully');
     }
 
     /**
@@ -44,7 +54,8 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        // dd($comment);
+        return view('client.pages.comment.edit',['comment'=>$comment]);
     }
 
     /**

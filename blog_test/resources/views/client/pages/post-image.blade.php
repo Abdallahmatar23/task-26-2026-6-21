@@ -182,60 +182,61 @@
 
                     <div class="comment-area my-5">
                         <h3 class="mb-4 text-center">2 Comments</h3>
-                        @foreach($comments as $comment)
-                        <div class="comment-area-box media">
-                            <img alt="" src="{{ asset($post->image) }}" class="img-fluid float-left mr-3 mt-2">
+                        {{-- @foreach ($comments as $comment) --}}
+                        @foreach ($post->comments as $comment)
+                            <div class="comment-area-box media">
+                                <img alt="" src="{{ asset($post->image) }}"
+                                    class="img-fluid float-left mr-3 mt-2">
+                                {{-- <img alt="" src="{{ asset($user->image) }}" class="img-fluid float-left mr-3 mt-2"> --}}
 
-                            <div class="media-body ml-4">
-                                <h4 class="mb-0">Micle harison </h4>
-                                <span class="date-comm font-sm text-capitalize text-color"><i
-                                        class="ti-time mr-2"></i>June 7, 2019 </span>
+                                <div class="media-body ml-4">
+                                    {{-- <h4 class="mb-0">Micle harison </h4> --}}
+                                    <h4 class="mb-0">{{  $comment->user->name }} </h4>
+                                    <span class="date-comm font-sm text-capitalize text-color"><i
+                                            {{-- class="ti-time mr-2"></i>June 7, 2019 </span> --}}
+                                    class="ti-time mr-2"></i>{{ $comment->created_at }}</span>
 
-                                <div class="comment-content mt-3">
-                                    <p>{{ $comment->content }}.</p>
-                                </div>
-                                <div class="comment-meta mt-4 mt-lg-0 mt-md-0">
-                                    <a href="{{ route('create-comment') }}" class="text-underline ">Reply</a>
+                                    <div class="comment-content mt-3">
+                                        <p>{{ $comment->content }}.</p>
+                                    </div>
+                                    <div class="comment-meta mt-4 mt-lg-0 mt-md-0">
+                                        <a href="{{ route('comment.create') }}" class="text-underline ">Reply</a>
+                                    </div>
+                                    <div class="comment-meta mt-4 mt-lg-0 mt-md-0">
+                                        <a href="{{ route('comment.edit', $comment->id) }}"
+                                            class="text-underline ">Edit</a>
+                                    </div>
+                                    <div class="comment-meta mt-4 mt-lg-0 mt-md-0">
+                                        <a href="{{ route('comment.destroy', $comment->id) }}"
+                                            class="text-underline ">delete</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
-
-                        <div class="comment-area-box media mt-5">
-                            <img alt="" src="{{ asset($post->image) }}" class="mt-2 img-fluid float-left mr-3">
-
-                            <div class="media-body ml-4">
-                                <h4 class="mb-0 ">John Doe </h4>
-                                <span class="date-comm font-sm text-capitalize text-color"><i
-                                        class="ti-time mr-2"></i>June 7, 2019 </span>
-
-                                <div class="comment-content mt-3">
-                                    <p>Some consultants are employed indirectly by the client via a consultancy staffing
-                                        company. </p>
-                                </div>
-                                <div class="comment-meta mt-4 mt-lg-0 mt-md-0">
-                                    <a href="#" class="text-underline">Reply</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
-                    <form class="comment-form mb-5 gray-bg p-5" id="comment-form">
+                    <form method="post" action="{{ route('comment.store') }}" class="comment-form mb-5 gray-bg p-5"
+                        id="comment-form">
+                        @csrf
                         <h3 class="mb-4 text-center">Leave a comment</h3>
                         <div class="row">
                             <div class="col-lg-12">
-                                <textarea class="form-control mb-3" name="comment" id="comment" cols="30" rows="5"
+                                <textarea name="comment" class="form-control mb-3" id="comment" cols="30" rows="5"
                                     placeholder="Comment"></textarea>
                             </div>
+
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" name="name" id="name"
+                                    <input name="name" class="form-control" type="text" id="name"
                                         placeholder="Name:">
                                 </div>
                             </div>
+
+                            <input name="post_id" class="form-control" type="hidden" value="{{ $post->id }}">
+
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" name="mail" id="mail"
+                                    <input name="email" class="form-control" type="text" id="email"
                                         placeholder="Email:">
                                 </div>
                             </div>
