@@ -36,8 +36,7 @@
                                 <div class="post-body">
                                     <div class="entry-content">
                                         <p> {{ $post->description }} {{ $post->description }} {{ $post->description }}
-                                            {{ $post->description }} {{ $post->description }} {{ $post->description }}
-                                            {{ $post->description }} {{ $post->description }} {{ $post->description }}.
+                                            {{ $post->description }} {{ $post->description }}.
                                         </p>
                                         <h2 class="mt-4 mb-3">{{ $post->title }}</h2>
                                         <p> The Sagoths had begun to take notice of his habit of declaiming throughout
@@ -105,15 +104,14 @@
                     </div>
                     <div class="post-author d-flex my-5">
                         <div class="author-img">
-                            <img alt="" src="{{ asset($post->image) }}" class="avatar avatar-100 photo"
+                            <img alt="" src="{{ asset($post->user->image) }}" class="avatar avatar-100 photo"
                                 width="100" height="100">
                         </div>
 
                         <div class="author-content pl-4">
                             <h4 class="mb-3"><a href="{{ asset($post->image) }}" title="" rel="author"
-                                    class="text-capitalize">Themefisher</a></h4>
-                            <p>Hey there. My name is Liam. I was born with the love for traveling. I also love taking photos
-                                with my phone in order to capture moment..</p>
+                                    class="text-capitalize">{{ $post->user->name }}</a></h4>
+                            <p>{{ $post->user->description }}..</p>
 
                             <a target="_blank" class="author-social" href="#"><i class="ti-facebook"></i></a>
                             <a target="_blank" class="author-social" href="#"><i class="ti-twitter"></i></a>
@@ -166,12 +164,11 @@
                         {{-- @foreach ($comments as $comment) --}}
                         @foreach ($post->comments as $comment)
                             <div class="comment-area-box media">
-                                <img alt="" src="{{ asset($post->image) }}"
+                                <img alt="" src="{{ asset($post->user->image) }}"
                                     class="img-fluid float-left mr-3 mt-2">
                                 {{-- <img alt="" src="{{ asset($user->image) }}" class="img-fluid float-left mr-3 mt-2"> --}}
 
                                 <div class="media-body ml-4">
-                                    {{-- <h4 class="mb-0">Micle harison </h4> --}}
                                     <h4 class="mb-0">{{ $comment->user->name }} </h4>
                                     <span class="date-comm font-sm text-capitalize text-color"><i {{-- class="ti-time mr-2"></i>June 7, 2019 </span> --}}
                                             class="ti-time mr-2"></i>{{ $comment->created_at }}</span>
@@ -232,11 +229,12 @@
                         <div class="sidebar-wrap mt-5 mt-lg-0">
                             <div class="sidebar-widget about mb-5 text-center p-3">
                                 <div class="about-author">
-                                    <img src="{{ asset($post->image) }}" alt="" class="img-fluid">
+                                    <img src="{{ asset($post->user->image) }}" alt="" class="img-fluid">
                                 </div>
-                                <h4 class="mb-0 mt-4">Liam Mason</h4>
-                                <p>Travel Blogger</p>
-                                <p>I'm Liam, last year I decided to quit my job and travel the world. You can follow my
+                                <h4 class="mb-0 mt-4">{{ $post->user->name }}</h4>
+                                <p>{{ $post->category->title }} Blogger</p>
+                                <p>I'm {{ $post->user->name }}, last year I decided to quit my job and
+                                    {{ $post->user->description }}. You can follow my
                                     journey on this blog!</p>
                                 <img src="{{ asset($post->image) }}" alt="" class="img-fluid">
                             </div>
@@ -255,38 +253,40 @@
                             <div class="sidebar-widget mb-5 ">
                                 <h4 class="text-center widget-title">Trending Posts</h4>
 
-                                <div class="sidebar-post-item-big">
-                                    <a href="blog-single.html"><img src="{{ asset($post->image) }}" alt=""
-                                            class="img-fluid"></a>
+                                {{-- <div class="sidebar-post-item-big">
+                                    <a href="blog-single.html"><img src="{{ asset($post->category->image) }}"
+                                            alt="" class="img-fluid"></a>
                                     <div class="mt-3 media-body">
                                         <span class="text-muted letter-spacing text-uppercase font-sm">September 10,
                                             2019</span>
                                         <h4><a href="blog-single.html">Meeting With Clarissa, Founder Of Purple
                                                 Conversation App</a></h4>
                                     </div>
-                                </div>
+                                </div> --}}
 
-                                <div class="media border-bottom py-3 sidebar-post-item">
-                                    <a href="#"><img class="mr-4" src="{{ asset($post->image) }}"
+
+                                {{-- <div class="media border-bottom py-3 sidebar-post-item">
+                                    <a href="#"><img class="mr-4" src="{{ asset($relatedPost->image) }}"
                                             alt=""></a>
                                     <div class="media-body">
                                         <span class="text-muted letter-spacing text-uppercase font-sm">September 10,
                                             2019</span>
                                         <h4><a href="blog-single.html">Thoughtful living in los Angeles</a></h4>
                                     </div>
-                                </div>
+                                </div> --}}
 
-                                <div class="media py-3 sidebar-post-item">
-                                    <a href="#"><img class="mr-4" src="{{ asset($post->image) }}"
-                                            alt=""></a>
-                                    <div class="media-body">
-                                        <span class="text-muted letter-spacing text-uppercase font-sm">September 10,
-                                            2019</span>
-                                        <h4><a href="blog-single.html">Vivamus molestie gravida turpis.</a></h4>
+                                @foreach ($featuredPosts as $relatedPost)
+                                    <div class="media py-3 sidebar-post-item">
+                                        <a href="#"><img class="mr-4" src="{{ asset($relatedPost->image) }}"
+                                                alt=""></a>
+                                        <div class="media-body">
+                                            <span
+                                                class="text-muted letter-spacing text-uppercase font-sm">{{ $relatedPost->created_at }}</span>
+                                            <h4><a href="blog-single.html">{{ $relatedPost->title }}.</a></h4>
+                                        </div>
                                     </div>
-                                </div>
                             </div>
-
+                            @endforeach
 
                             <div class="sidebar-widget category mb-5">
                                 <h4 class="text-center widget-title">Catgeories</h4>

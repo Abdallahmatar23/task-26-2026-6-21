@@ -10,13 +10,15 @@ class PostController extends Controller
     public function index(int $user_id)
     {
         $posts = Post::where('user_id', $user_id)->get();
+
         return view('client.pages.blog-single', ['posts' => $posts]);
     }
     public function show(int $id)
     {
         $post = Post::with('user', 'category', 'comments')->findOrFail($id);
-        // dd($post->comments);
-        return view('client.pages.post-image', ['post' => $post]);
+        $featuredPosts = $post->category->posts()->where('is_featured', 1)->latest()->get();
+        // dd($featuredPosts);
+        return view('client.pages.post-image', ['post' => $post, 'featuredPosts' => $featuredPosts]);
     }
 
     public function admin()
