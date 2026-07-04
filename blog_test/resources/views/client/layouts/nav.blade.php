@@ -43,12 +43,20 @@
                 </div>
             </li>
 
+            {{-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{{ route('dashboard') }}" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dashboard
+                </a>
+            </li> --}}
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="{{ route('all-categories') }}" id="navbarDropdown2"
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Administrator
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
                     <a class="dropdown-item" href="{{ route('all-categories') }}">Categories</a>
                     <a class="dropdown-item" href="{{ route('all-posts') }}">Posts</a>
                     {{-- <a class="dropdown-item" href="{{ route('all-users') }}">Users</a> --}}

@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -38,9 +39,11 @@ Route::get('post/{id}', [PostController::class, 'show'])->name('post');
 
 Route::get('blog/{id}', [PostController::class, 'index'])->name('blog');
 
-Route::resource('comment',CommentController::class);
+Route::resource('comment', CommentController::class);
 
-Route::resource('post',PostController::class);
+Route::resource('post', PostController::class);
+
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // Route::get('all-users', [UserController::class, 'admin'])->name('all-users');
 

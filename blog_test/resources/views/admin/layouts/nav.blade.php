@@ -10,10 +10,16 @@
 
     <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="menu navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{{ route('home') }}" id="navbarDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home') }}" id="navbarDropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false">
                     Home
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{{ route('dashboard') }}" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dashboard
                 </a>
             </li>
 
