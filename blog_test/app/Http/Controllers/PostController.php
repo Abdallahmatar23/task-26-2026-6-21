@@ -9,9 +9,11 @@ class PostController extends Controller
 {
     public function index(int $user_id)
     {
-        $posts = Post::where('user_id', $user_id)->get();
+        $posts = Post::with('user','category','comments')->where('user_id', $user_id)->get();
 
-        return view('client.pages.blog-single', ['posts' => $posts]);
+        $featuredPosts = $posts->where('is_featured', 1)->all();
+
+        return view('client.pages.blog-single', ['posts' => $posts, 'featuredPosts' => $featuredPosts]);
     }
     public function show(int $id)
     {

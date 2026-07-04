@@ -285,8 +285,8 @@
                                             <h4><a href="blog-single.html">{{ $relatedPost->title }}.</a></h4>
                                         </div>
                                     </div>
+                                @endforeach
                             </div>
-                            @endforeach
 
                             <div class="sidebar-widget category mb-5">
                                 <h4 class="text-center widget-title">Catgeories</h4>

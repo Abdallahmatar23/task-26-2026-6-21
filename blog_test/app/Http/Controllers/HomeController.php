@@ -10,6 +10,8 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::with('user', 'category')->paginate(12);
-        return view('client.pages.home', ['posts' => $posts]);
+        $featuredPosts = $posts->where('is_featured',1);
+        // dd($featuredPosts);
+        return view('client.pages.home', ['posts' => $posts,'featuredPosts' => $featuredPosts]);
     }
 }

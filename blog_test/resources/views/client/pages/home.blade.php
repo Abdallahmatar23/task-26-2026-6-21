@@ -15,7 +15,7 @@
                         @foreach ($posts as $post)
                             <div class="col-lg-4 col-md-6 col-sm-6">
                                 <article class="post-grid mb-5 ">
-                                    <a class="post-thumb mb-4 d-block" href="{{ route('post' , $post->id) }}">
+                                    <a class="post-thumb mb-4 d-block" href="{{ route('post', $post->id) }}">
                                         <img src="{{ asset($post->image) }}" alt="" class="img-fluid w-100">
                                     </a>
 
@@ -30,6 +30,32 @@
                                                 href="{{ route('post', $post->id) }}">{{ $post->title }}</a></h3>
                                         <p>{{ $post->description }}</p>
                                         <h5> Created by : {{ $post->user->name }}</h5>
+                                    </div>
+                                </article>
+                            </div>
+                        @endforeach
+                        <div class="col-12 my-4 text-center">
+                            <h1>Featured Posts</h1>
+                        </div>
+
+                        @foreach ($featuredPosts as $rPost)
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <article class="post-grid mb-5 ">
+                                    <a class="post-thumb mb-4 d-block" href="{{ route('post', $rPost->id) }}">
+                                        <img src="{{ asset($rPost->image) }}" alt="" class="img-fluid w-100">
+                                    </a>
+
+                                    <div class="post-content-grid">
+                                        <div class="label-date">
+                                            <span class="day">{{ $rPost->created_at->format('d') }}</span>
+                                            <span class="month text-uppercase">{{ $rPost->created_at->format('F') }}</span>
+                                        </div>
+                                        <span
+                                            class="cat-name text-color font-extra font-sm text-uppercase letter-spacing">{{ $rPost->category->title }}</span>
+                                        <h3 class="post-title mt-1"><a
+                                                href="{{ route('post', $rPost->id) }}">{{ $rPost->title }}</a></h3>
+                                        <p>{{ $rPost->description }}</p>
+                                        <h5> Created by : {{ $rPost->user->name }}</h5>
                                     </div>
                                 </article>
                             </div>
